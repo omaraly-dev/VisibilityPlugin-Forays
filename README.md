@@ -1,5 +1,5 @@
 # VisibilityPlugin
-This plugin controls the visibility of players, pets and chocobos.
+This plugin controls the visibility of players, pets and chocobos. It has been modified from the master branch to function in Exploration Forays for weaker hardware. Be aware that safeties and built-in configuration of this safety bypass have not been implemented yet.
 
 ## About
 Visibility lets you hide those pesky players and their chocobos in hunts and major towns to reduce framerate drops and just give better quality of life.
