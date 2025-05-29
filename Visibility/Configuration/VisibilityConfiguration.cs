@@ -24,6 +24,22 @@ public class VisibilityConfiguration: IPluginConfiguration
 	public bool EnableContextMenu;
 	public bool ShowTargetOfTarget;
 
+	private List<uint> TerritoryWhitelist { get; } = new()
+	{
+		0,
+		1,
+		13,
+		19,
+		21,
+		23,
+		44,
+		46,
+		47,
+		41,
+		48,
+		61
+	};
+
 	public List<VoidItem> VoidList { get; } = [];
 
 	public List<VoidItem> Whitelist { get; } = [];
@@ -313,7 +329,7 @@ public class VisibilityConfiguration: IPluginConfiguration
 
 		IEnumerable<(ushort, ReadOnlySeString)>? valueTuples = Service.DataManager.GetExcelSheet<TerritoryType>()?
 			.Where(
-				x => (x.TerritoryIntendedUse.RowId is 0 or 1 or 13 or 19 or 21 or 23 or 44 or 46 or 47 ||
+				x => (this.TerritoryWhitelist.Contains(x.TerritoryIntendedUse.RowId) ||
 				      this.TerritoryTypeWhitelist.Contains((ushort)x.RowId)) && !x.Name.IsEmpty &&
 				     x.RowId != 136)
 			.Select(x => ((ushort)x.RowId, x.PlaceName.ValueNullable?.Name ?? "Unknown Place"));

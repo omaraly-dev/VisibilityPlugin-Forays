@@ -25,7 +25,7 @@ namespace Visibility;
 
 public class VisibilityPlugin: IDalamudPlugin
 {
-	public string Name => "Visibility";
+	public string Name => "Visibility - Forays";
 
 	private static string PluginCommandName => "/pvis";
 
